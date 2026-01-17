@@ -32,6 +32,7 @@ function PasswordGenerator(){
 // PasswordGenerator ke code ko re-render hone se rokte hai ye useCallback .. aur previous code ko hi use karte hai jab tak dependencies change na ho jaye aur agr kuch dependencies change ho jaye to hi ye naya function banayega...
 
    const generatepassword = useCallback(()=>{
+
       let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
       if(numberChanged)
          str+="0123456789"
@@ -51,7 +52,7 @@ function PasswordGenerator(){
 
   useEffect(()=>{
      generatepassword();
-  },[generatepassword])
+  },[generatepassword]) ;//jab bhi generatepassword change hoga tabhi ye useEffect chalega .. or generatepassword tabhi change hoga jab length,charChanged,numberChanged change hoga ..
 
 
    return(
